@@ -1,0 +1,38 @@
+@import "../lib/bootstrap/less/bootstrap.less";
+
+@page{size:a4;}
+
+@media print{
+
+    #page{
+      .make-row();
+      #left{
+         margin-top:50px;
+        .make-xs-column(12);
+      }
+      #right{
+         .make-xs-column(12);
+      }
+    }
+
+    .contact:before {
+        content: 'Thierry Sans';
+        font-size: 42px;
+
+    }
+
+    .contact{
+        .profile{
+            float:right;
+            margin-top:-50px;
+        }
+    }
+
+    a[href]:after {
+        content: none !important;
+    }
+
+    .media{
+        display: none !important;
+    }
+}

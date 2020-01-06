@@ -1,0 +1,226 @@
+@import "../lib/bootstrap/less/bootstrap.less";
+
+@base-color: #cc0000;
+@light-color: #e6f0ff;
+
+@brand-primary: @base-color;
+
+@jumbotron-bg: @light-color;
+
+@navbar-default-bg: white;
+
+@dropdown-bg: white;
+@dropdown-link-color: @navbar-default-link-color;
+@dropdown-link-hover-color: @navbar-default-link-hover-color;
+@dropdown-link-hover-bg: @light-color;
+
+@navbar-default-link-active-bg: @light-color;
+
+.light{
+    color: @base-color;
+}
+
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+}
+
+footer{
+    margin: 0px auto;
+    margin-top: 20px;
+    width: 1000px;
+}
+
+p, ul{
+	line-height: 180%;
+}
+
+.break{
+    display: block;
+}
+
+.em{
+    font-weight: bold;
+}
+
+.navbar{
+    padding-top:25px;
+}
+
+.anchor{
+    padding-top:80px;
+    margin-top: -60px;
+}
+
+#utsc_logo{
+    margin-top:-25px;
+    max-height:50px;
+    height: auto;
+}
+
+#content{
+    margin-top:50px;
+	min-height: 200px;
+    overflow-x: scroll;
+}
+
+#header{
+    .jumbotron();
+    h1{
+        font-size: 40px;
+    }
+    #instructor, #timing {
+      .make-row();
+      font-size: @jumbotron-font-size;
+      div:first-child{
+        .make-md-column(2);
+        font-weight:bold;
+      }
+      div:last-child {
+        .make-md-column(10);
+      }
+    }
+}
+
+#description{
+    #selected_courses{
+        margin-top:10px;
+    }
+}
+
+#page{
+  .make-row();
+  #right{
+    .make-md-column(3);
+     @media screen and (min-width: @screen-md-min) {
+         position: fixed;
+     }
+    
+  }
+  #left{
+    .make-md-column(9);
+    .make-md-column-offset(3);
+  }
+}
+
+#menu{
+    .navbar-brand{
+        margin-right:105px;
+        font-size:@font-size-h2;
+    }
+}
+
+.contact{
+    .profile{
+        margin:10px 0px 20px 10px;
+    }
+    .title{
+        font-size:15px;
+        font-weight: bold;
+    }
+    .institution{
+        margin-top:5px;
+        font-size:15px;
+    }
+    .email, .pgp{
+        margin-top:5px;
+        display:inline-block;
+    }
+
+    .address, .phone, .office{
+        font-size:14px;
+        margin-top:5px;
+    }
+    .networks{
+        .media{
+            display:inline-block;
+            margin-top:15px;
+            margin-right:20px;
+        }
+    }
+}
+
+.project{
+    .title{
+         font-weight: bold;
+    }
+    .funding{
+        font-style:italic;
+    }
+}
+
+.publi{
+    .make-row();
+    margin-top:10px;
+    margin-bottom:10px;
+    .title{
+         .make-md-column(12);
+         font-weight: bold;
+    }
+    .author{
+        .make-md-column(12);
+        color: @base-color;
+    }
+    .book{
+        padding-left:20px;
+         .booktitle, .editor{
+              .make-md-column(9);
+         }
+         .place{
+             .make-md-column(9);
+             font-style:italic;
+         }
+         .date{
+              .make-md-column(3);
+              text-align:right;
+         }
+    }
+
+}
+
+.course{
+    .make-row();
+    margin-top:10px;
+    margin-bottom:10px;
+    .title{
+         .make-md-column(8);
+         // font-weight: bold;
+    }
+     .year{
+          .make-md-column(4);
+          text-align:right;
+    }
+    .info{
+        .make-md-column(12);
+        font-style:italic;
+        font-size: 12px;
+
+    }
+}
+
+.resume{
+    .make-row();
+    margin-top:10px;
+    margin-bottom:10px;
+    .title{
+         .make-md-column(8);
+         font-weight: bold;
+    }
+    .date{
+         .make-md-column(4);
+         text-align:right;
+    }
+    .option{
+        .make-xs-column(1);
+    }
+    .comment{
+        .make-xs-column(11);
+    }
+    .place, .address, .detail, .office{
+         .make-md-column(12);
+    }
+}
+
+
