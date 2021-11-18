@@ -1,17 +1,6 @@
 <template>
   <v-layout column justify-center align-center class="mt-4 pt-2">
     <VueCompareImage
-      class="hidden-md-and-down"
-      hover
-      :style="{ minWidth: '1300px' }"
-      :sliderLineWidth="sliderLine"
-      :handleSize="hSize"
-      :leftImage="leftImage"
-      :rightImage="rightImage"
-      :sliderPositionPercentage="sliderPosition"
-    />
-    <VueCompareImage
-      class="hidden-lg-and-up"
       hover
       :style="{ maxWidth: '400px' }"
       :sliderLineWidth="sliderLine"
@@ -19,11 +8,12 @@
       :leftImage="leftImage2"
       :rightImage="rightImage2"
       :sliderPositionPercentage="sliderPosition"
+      
     />
 
     <br>
 
-    <vue-typer class="headline" :repeat="0" text="Eldin Zaimovic"></vue-typer>
+    <vue-typer class="headline" :repeat="0" text="Salman Sharif"></vue-typer>
     <vue-typer
       :text="text1"
       :repeat="Infinity"
@@ -40,34 +30,14 @@
     <br>
     <v-flex xs12 sm6 md4 lg4 xl4>
       <v-card flat color="transparent" max-width="500">
-        <v-card-title primary-title>
-          <div>
-            <h3 class="headline mb-0">
-              <span>About</span>
-              <span class="green--text">Me</span>
-            </h3>
-            <div>
-              <p>
-                Hello! I’m Eldin Zaimovic. I'm a front-end developer who
-                is passionate about
-                <span
-                  class="green--text font-weight-bold"
-                >VUE</span>, building great user experiences,
-                fighting for simplicity over complexity and constantly learning.
-                When I'm not coding or making videos, you'll find me traveling across Europe.
-              </p>
-            </div>
-          </div>
-        </v-card-title>
-
-        <v-card-actions class="hidden-sm-and-down">
+        <v-card-actions class="hidden-sm-and-down justify-center">
           <v-btn
             v-for="icon in icons"
             :key="icon.icon"
             fab
             dark
             outline
-            color="green"
+            color="red"
             :href="icon.href"
             target="_blank"
           >
@@ -83,79 +53,84 @@
             fab
             dark
             outline
-            color="green"
+            color="red"
             :href="icon.href"
             target="_blank"
           >
             <v-icon dark>{{icon.icon}}</v-icon>
           </v-btn>
         </v-card-actions>
+        <v-card-title primary-title>
+          <div>
+            <h3 class="headline mb-0">
+              <span>About</span>
+              <span class="red--text">Me</span>
+            </h3>
+            <div>
+              <p>
+                {{aboutMe}}
+              </p>
+            </div>
+          </div>
+
+        <v-flex class="hidden-lg-and-up">
+        <v-btn flat block color="red" to="/resume">Check out My Resume</v-btn>
+        <v-btn flat block color="red" to="/portfolio">Check out My Projects</v-btn>
+        <v-btn flat block color="red" to="/contact">Contact Me</v-btn>
+    <v-btn flat block color="red" to="/">Go Back to Main</v-btn>
+    </v-flex>
+    <div class="hidden-md-and-down">
+        <v-btn flat color="red" to="/resume">Check out My Resume</v-btn>
+        <v-btn flat color="red" to="/portfolio">Check out My Projects</v-btn>
+        <v-btn flat color="red" to="/contact">Contact Me</v-btn>
+    <v-btn flat color="red" to="/">Go Back to Main</v-btn>
+    </div>
+        </v-card-title>
       </v-card>
     </v-flex>
+    
   </v-layout>
 </template>
 
 <script>
-import { VueTyper } from "vue-typer";
-import VueCompareImage from "vue-compare-image";
+import { VueTyper } from 'vue-typer'
+import VueCompareImage from 'vue-compare-image'
 
 export default {
   metaInfo: {
-    title: "Home",
-    titleTemplate: "%s ← Eldin's Space",
+    title: 'Home',
+    titleTemplate: "%s ← Salman's Portfolio",
     meta: [
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "description", content: "Eldin Zaimovic's Portfolio" },
-      { charset: "utf-8" },
-      { property: "og:title", content: "Eldin' Space" },
-      { property: "og:site_name", content: "Eldin' Space" },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://eldin.space" },
-      {
-        property: "og:image",
-        content: "https://i.imgur.com/Dcz2PGx.jpg"
-      },
-      { property: "og:description", content: "Eldin Zaimovic's Portfolio" }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'description', content: "Salman's Portfolio" },
+      { charset: 'utf-8' },
+      { property: 'og:title', content: "Salman's Portfolio" },
+      { property: 'og:site_name', content: "Salman's Portfolio" },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://salmansharif.me' }
     ]
   },
   components: {
-    "vue-typer": VueTyper,
+    'vue-typer': VueTyper,
     VueCompareImage
   },
-  data() {
+  computed: {
+    aboutMe () { return this.$store.state.resume.about },
+    icons () { return this.$store.state.resume.contacts }
+  },
+  data () {
     return {
-      icons: [
-        { href: "https://github.com/EldinZaimovic", icon: "fab fa-github" },
-        {
-          href: "https://stackoverflow.com/users/story/9660700",
-          icon: "fab fa-stack-overflow"
-        },
-        { href: "https://twitter.com/EldinMatricar", icon: "fab fa-twitter" },
-        {
-          href: "https://www.linkedin.com/in/eldin-zaimovic",
-          icon: "fab fa-linkedin-in"
-        },
-        {
-          href: "https://www.xing.com/profile/Eldin_Zaimovic?sc_o=mxb_p",
-          icon: "fab fa-xing"
-        },
-        {
-          href: "https://www.facebook.com/EldinVasVoli",
-          icon: "fab fa-facebook-f"
-        },
-        { href: "https://www.instagram.com/matricar", icon: "fab fa-instagram" }
-      ],
-      text1: ["Front-End Developer", "Web Developer", "Web Designer"],
-      leftImage: "https://i.imgur.com/bU50uS9.jpg",
-      rightImage: "https://i.imgur.com/z3ZoEEw.jpg",
-      leftImage2: "https://i.imgur.com/SXBitjh.jpg",
-      rightImage2: "https://i.imgur.com/Dcz2PGx.jpg",
+      text1: ['Full-Stack Developer', 'Software Engineer', 'Bug Master'],
+      leftImage: 'https://i.imgur.com/bU50uS9.jpg',
+      rightImage: 'https://i.imgur.com/z3ZoEEw.jpg',
+      leftImage2: 'https://i.imgur.com/AQDaDcC.jpg?1',
+      rightImage2: 'https://i.imgur.com/1IEYMNS.png',
       sliderLine: 0,
       hSize: 0,
-      sliderPosition: 0.5
-    };
+      sliderPosition: 1
+    }
   }
-};
+}
 </script>
 <style>
 @keyframes rocking {
@@ -173,21 +148,20 @@ export default {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 .vue-typer .custom.char.typed {
-  color: green;
+  color: red;
 }
 .vue-typer .custom.char.selected {
-  color: #e91e63;
+  color: grey;
 }
 
 .vue-typer .custom.caret {
   animation: rocking 1s ease-in-out 0s infinite;
 }
 .vue-typer .custom.caret.typing {
-  background-color: green;
+  background-color: red;
 }
 .vue-typer .custom.caret.selecting {
   display: inline-block;
-  background-color: #e91e63;
+  background-color: grey;
 }
 </style>
-

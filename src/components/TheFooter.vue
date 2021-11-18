@@ -1,15 +1,16 @@
 <template>
   <v-footer class="pa-3">
-    Developed with&nbsp
-    <v-icon small color="red">fas fa-heart</v-icon>&nbspand&nbsp
-    <v-icon small color="green">fab fa-vuejs</v-icon>
+    Developed with&nbsp;
+    <v-icon small color="red">fas fa-heart</v-icon>&nbsp;and&nbsp;
+    <v-icon small color="green">fab fa-vuejs</v-icon>. 
+    Inspired by Eldin Zaimovic.
     <v-spacer></v-spacer>
-    <div>&copy; {{ new Date().getFullYear() }}</div>
+    <div>{{ new Date().getFullYear() }}</div>
   </v-footer>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style lang="scss" scoped>

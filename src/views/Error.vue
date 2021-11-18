@@ -11,7 +11,7 @@
       <span class="circle small"></span>
       <br>
       <br>
-      <v-btn large to="/" class="green--text">
+      <v-btn large to="/" class="red--text">
         <v-icon>arrow_back</v-icon>GO HOME
       </v-btn>
     </div>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style scoped>
@@ -43,7 +43,7 @@ export default {};
 
 .circles p {
   font-size: 240px;
-  color: green;
+  color: red;
   padding-top: 90px;
   position: relative;
   z-index: 9;
@@ -60,7 +60,7 @@ export default {};
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: rgb(200, 223, 166);
+  background: rgb(241, 148, 105);
   position: absolute;
   z-index: 1;
   top: 80px;
@@ -75,7 +75,7 @@ export default {};
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: rgb(141, 214, 163);
+  background: rgb(230, 200, 162);
   position: absolute;
   z-index: 1;
   top: 0;
@@ -90,7 +90,7 @@ export default {};
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: rgb(173, 211, 129);
+  background: rgb(250, 130, 114);
   position: absolute;
   z-index: 1;
   top: 200px;
