@@ -1,0 +1,192 @@
+{
+  "name": "Salman Sharif",
+  "title": "Senior Software Engineer",
+  "tagline": "Building robust software solutions that drive business growth",
+  "resumeLink": "https://docs.google.com/document/d/e/2PACX-1vT1fX-IlpO031Pn3rQ-J64PzdoaWhXubyyqSD8852G-ai-V_VX8iNntAJnYC2pc6jxo0A-e_MWIF6Pq/pub",
+  "about": "Hello and welcome to my website! My name is Salman and I was informally known as the \"Bug Master\" at my previous company, Flipp because not only was I great at finding issues within the software, I addressed these issues to the best of my ability as well. When joining a new organization or team, I seek opportunities for growth and facilitate inclusivity especially as the organization evolves. I have completed my Bachelor of Science degree specializing in Computer Science and Software Engineering from the University of Toronto Scarborough and I'm looking forward to applying what I have learned throughout my career.",
+  "contacts": [
+    {
+      "type": "email",
+      "value": "salmansharif99@gmail.com",
+      "href": "mailto:salmansharif99@gmail.com",
+      "icon": "email"
+    },
+    {
+      "type": "phone",
+      "value": "+1 647 822 8256",
+      "href": "tel:+1647-822-8256",
+      "icon": "phone"
+    },
+    {
+      "type": "linkedin",
+      "value": "linkedin.com/in/salman-sharif-swe",
+      "href": "https://www.linkedin.com/in/salman-sharif-swe",
+      "icon": "linkedin"
+    },
+    {
+      "type": "github",
+      "value": "github.com/floatingkernal",
+      "href": "https://github.com/floatingkernal",
+      "icon": "github"
+    }
+  ],
+  "skills": {
+    "Languages": ["Python", "JavaScript", "TypeScript", "Java", "C/C++", "C#", "Swift", "SQL"],
+    "Frontend": ["React", "Vue", "HTML5", "CSS3", "Tailwind CSS"],
+    "Backend": ["Django", "Node.js", "Express"],
+    "Databases": ["MySQL", "PostgreSQL", "MongoDB", "SQLite", "Oracle DB", "Firebase"],
+    "Testing": ["Selenium", "Appium", "Jest", "Pytest"],
+    "DevOps & Tools": ["Git", "Jenkins", "CircleCI", "Jira", "Docker"],
+    "Mobile": ["Android", "iOS", "React Native"]
+  },
+  "educations": [
+    {
+      "school": "University of Toronto",
+      "degree": "Honours Bachelor of Science in Computer Science (Software Engineering)",
+      "start": "2015",
+      "end": "2020",
+      "coursework": [
+        "Artificial Intelligence",
+        "Machine Learning and Data Mining",
+        "Computer and Network Security",
+        "Operating Systems",
+        "Algorithm Design and Analysis",
+        "Human-Computer Interaction",
+        "Databases"
+      ]
+    }
+  ],
+  "workExp": [
+    {
+      "company": "Perpetua / Flywheel Digital",
+      "position": "Senior Specialist Software Engineer",
+      "start": "June 2022",
+      "end": "Present",
+      "location": "Toronto, Ontario, Canada",
+      "description": [
+        "Engineered robust software solutions to optimize Amazon Ads campaigns, enhancing user experience and advertiser ROI to grow clients' businesses",
+        "Collaborated with cross-functional teams to innovate and integrate advanced features into the Perpetua / Flywheel Digital platform to capture new marketplaces",
+        "Pioneered the development of a recommendation system for ad campaigns, utilizing data analytics to drive strategic decisions and increase customer sales by 25%"
+      ]
+    },
+    {
+      "company": "TCS & RBC",
+      "position": "Automation Engineer Consultant",
+      "start": "January 2021",
+      "end": "April 2022",
+      "location": "Toronto, Ontario, Canada",
+      "description": [
+        "Automated Mobile Banking manual test cases for release validation using Appium Scripts written in Java, decreasing time to production from 2 weeks to 2 days",
+        "Developed test cases for new features introduced by developer and design teams using ALM and Design Documentation, improving release and subsequent regression cycles",
+        "Onboarded new team members for the Automation team by creating documentation for setup/walkthroughs of automation tools, decreasing onboarding time by 4X"
+      ]
+    },
+    {
+      "company": "Flipp",
+      "position": "Software Engineer in Test",
+      "start": "May 2019",
+      "end": "August 2019",
+      "location": "Toronto, Ontario, Canada",
+      "link": "https://corp.flipp.com/",
+      "description": [
+        "Created scripts for automating development tasks using Python, Testrail API, Jenkins, and CircleCI to reduce time to market of new features by 50%",
+        "Transitioned app from processing data on the app to the server by testing updated codebase, improving app performance by at least 2X",
+        "Identified 100+ issues within the iOS and Android Flipp app using documentation and requirement lists, achieving nomination of \"Bug Master\" within the organization"
+      ]
+    },
+    {
+      "company": "Ministry of Education",
+      "position": "QA Engineer",
+      "start": "September 2017",
+      "end": "April 2018",
+      "location": "Toronto, Ontario, Canada",
+      "link": "http://www.edu.gov.on.ca/eng/about/",
+      "description": [
+        "Created automated tools and test cases to simplify manual testing by 3X using HP Unified Functional Testing and Selenium",
+        "Performance tested multiple applications during upgrade from Oracle 11g to 12c DB, resulting in 3X performance improvement (30s to under 10s response time)"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Personal Portfolio",
+      "desc": "Modern personal webpage built with React and Tailwind CSS",
+      "role": "Software Engineer",
+      "link": "https://salmansharif.me/",
+      "repo": "https://github.com/floatingkernal/floatingkernal.github.io",
+      "when": "2024",
+      "tech": ["React", "Tailwind CSS", "Vite", "GitHub Pages"],
+      "poster": "https://i.imgur.com/4coFxNH.png",
+      "highlights": [
+        "Developed a responsive portfolio website using React and Tailwind CSS with dark/light theme support",
+        "Implemented JSON-driven content management for easy updates and maintenance"
+      ]
+    },
+    {
+      "name": "Shoppies",
+      "desc": "Movie awards nomination service",
+      "role": "Software Engineer",
+      "link": "https://salmansharif.me/shoppies",
+      "repo": "https://github.com/floatingkernal/shoppies",
+      "when": "2021",
+      "tech": ["Vue", "JavaScript", "HTML", "CSS", "GitHub Pages"],
+      "poster": "https://i.imgur.com/DSnEeAR.png",
+      "highlights": [
+        "Built a movie nomination app with search functionality and persistent storage",
+        "Implemented responsive design with intuitive user interface"
+      ]
+    },
+    {
+      "name": "SMAA App",
+      "desc": "E-commerce Web App for SMAA Corp",
+      "role": "Full Stack Developer",
+      "link": "https://smaa.ca/",
+      "repo": "https://github.com/floatingkernal/SMAA-App",
+      "when": "2020",
+      "tech": ["Vue", "Firebase", "Node.js", "JavaScript"],
+      "poster": "https://i.imgur.com/bT9rBGr.png",
+      "highlights": [
+        "Created interactive web pages using Vue.js and Vuetify, increasing company revenue by 50%",
+        "Implemented authentication and route guarding using Firebase"
+      ]
+    },
+    {
+      "name": "Book a Room",
+      "desc": "Centralized platform for booking temporary office spaces",
+      "role": "Full Stack Engineer",
+      "link": "https://json-c09.herokuapp.com/",
+      "repo": "https://github.com/floatingkernal/Room-Booking-App",
+      "when": "2019",
+      "tech": ["React", "Node.js", "Express", "MongoDB", "Heroku"],
+      "poster": "https://i.imgur.com/qyLpyOX.png",
+      "highlights": [
+        "Built room renting application with Google Maps API integration",
+        "Deployed with HTTPS certification using Heroku and Let's Encrypt"
+      ]
+    },
+    {
+      "name": "InCase",
+      "desc": "Pocket Lawyer app - UofTHacks 2017 Finalist",
+      "role": "Developer",
+      "repo": "https://github.com/yeva-yu/UOFTHAX2017",
+      "when": "2017",
+      "tech": ["Swift", "Xcode", "Azure"],
+      "highlights": [
+        "Created iOS app in 36 hours, securing \"Best use of Microsoft Azure\" award and top 10 placement",
+        "Implemented Voice to Text feature using Azure cognitive services"
+      ]
+    },
+    {
+      "name": "Flight Manager App",
+      "desc": "Airplane Flight Itinerary Manager Application",
+      "role": "Developer",
+      "repo": "https://github.com/floatingkernal/CSCB07",
+      "when": "2016",
+      "tech": ["Java", "Android Studio"],
+      "highlights": [
+        "Implemented sorting and searching algorithms to identify best and cheapest routes",
+        "Designed UML diagrams to plan execution and coordinate team tasks"
+      ]
+    }
+  ]
+}
