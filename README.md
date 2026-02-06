@@ -1,16 +1,92 @@
-# React + Vite
+# salmansharif.me
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with React, Tailwind CSS, and Vite. Deployed to GitHub Pages.
 
-Currently, two official plugins are available:
+## Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[salmansharif.me](https://salmansharif.me)
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** — UI framework
+- **Vite 7** — Build tool and dev server
+- **Tailwind CSS v4** — Utility-first styling with class-based dark mode
+- **react-icons** — Feather and Simple Icons icon sets
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Opens a local dev server with hot module replacement.
+
+### Production Build
+
+```bash
+npm run build
+```
+
+Outputs optimized static files to `dist/`.
+
+### Deploy
+
+```bash
+npm run deploy
+```
+
+Builds the site and publishes the `dist/` folder to the `gh-pages` branch, which GitHub Pages serves at [salmansharif.me](https://salmansharif.me).
+
+## Project Structure
+
+```
+src/
+├── main.jsx              # App entry point
+├── App.jsx               # Root component, dark mode state, section layout
+├── index.css             # Tailwind config, CSS variables, global styles
+├── data/
+│   └── resume.json       # All resume content (bio, experience, skills, projects, etc.)
+└── components/
+    ├── Navbar.jsx         # Fixed navigation bar with scroll-spy and mobile menu
+    ├── Hero.jsx           # Landing hero section
+    ├── About.jsx          # About me bio and quick facts
+    ├── AskAI.jsx          # "Ask AI About Me" section with AI chat service buttons
+    ├── Toast.jsx          # Toast notification component
+    ├── Experience.jsx     # Work experience timeline
+    ├── Skills.jsx         # Technical skills grid
+    ├── Projects.jsx       # Project showcase cards
+    ├── Education.jsx      # Education details
+    ├── Contact.jsx        # Contact information
+    └── Footer.jsx         # Site footer
+```
+
+## Features
+
+- **Dark Mode** — Respects system preference, persists choice to localStorage, togglable from the nav bar
+- **Responsive Design** — Mobile-first layout with collapsible navigation
+- **Ask AI About Me** — One-click buttons to open AI assistants (Claude, ChatGPT, DeepSeek, Gemini, Grok) with a pre-written prompt copied to clipboard
+- **Smooth Scrolling** — Scroll-spy highlights the active section in the nav bar
+
+## Customization
+
+All personal content (bio, experience, skills, projects, education, contact info) lives in `src/data/resume.json`. Edit that file to update the site content without touching any components.
+
+## Git Branches
+
+| Branch | Purpose |
+|--------|---------|
+| `react-source` | Source code |
+| `gh-pages` | Built site (auto-managed by `npm run deploy`) |
