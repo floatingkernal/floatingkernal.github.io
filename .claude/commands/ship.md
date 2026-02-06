@@ -17,5 +17,11 @@ Ship the current changes to production (salmansharif.me):
 5. Build and deploy:
    - Run `npm run deploy` which builds and publishes to the `gh-pages` branch.
 
-6. Confirm success:
-   - Report that the site is live at https://salmansharif.me
+6. Verify deployment on GitHub:
+   - Run `gh api repos/floatingkernal/floatingkernal.github.io/pages --jq '.status'` and confirm it says "built".
+   - Run `gh api "repos/floatingkernal/floatingkernal.github.io/deployments?per_page=1" --jq '.[0].id'` to get the latest deployment ID.
+   - Run `gh api "repos/floatingkernal/floatingkernal.github.io/deployments/<DEPLOYMENT_ID>/statuses" --jq '.[0].state'` (substituting the ID) and confirm it says "success".
+   - If the state is not "success", wait 10 seconds and check again (up to 3 retries).
+
+7. Confirm success:
+   - Report the deployment status and that the site is live at https://salmansharif.me
