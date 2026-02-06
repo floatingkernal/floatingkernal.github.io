@@ -3,6 +3,7 @@ import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 
 const navLinks = [
   { name: 'About', href: '#about' },
+  { name: 'Ask AI', href: '#askai' },
   { name: 'Experience', href: '#experience' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },

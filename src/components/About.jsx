@@ -2,7 +2,7 @@ import { FiUser } from 'react-icons/fi';
 
 export default function About({ data }) {
   return (
-    <section id="about" className="py-20 px-4 bg-white dark:bg-gray-900">
+    <section id="about" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-8">
