@@ -3,7 +3,7 @@
   "title": "Senior Software Engineer",
   "tagline": "Building robust software solutions that drive business growth",
   "resumeLink": "https://docs.google.com/document/d/e/2PACX-1vT1fX-IlpO031Pn3rQ-J64PzdoaWhXubyyqSD8852G-ai-V_VX8iNntAJnYC2pc6jxo0A-e_MWIF6Pq/pub",
-  "about": "Hello and welcome to my website! My name is Salman and I was informally known as the \"Bug Master\" at my previous company, Flipp because not only was I great at finding issues within the software, I addressed these issues to the best of my ability as well. When joining a new organization or team, I seek opportunities for growth and facilitate inclusivity especially as the organization evolves. I have completed my Bachelor of Science degree specializing in Computer Science and Software Engineering from the University of Toronto Scarborough and I'm looking forward to applying what I have learned throughout my career.",
+  "about": "Hello and welcome to my website! My name is Salman and I was informally known as the \"Bug Master\" at my previous company, Flipp because not only was I great at finding issues within the software, I addressed these issues to the best of my ability as well. Today I build full-stack products on AWS and GCP and apply AI/ML — from LLM-powered features to data-driven recommendation systems — to solve real business problems. I'm also passionate about automation, whether it's CI/CD pipelines with GitHub Actions at work or tinkering with homelab automations in my spare time. When joining a new organization or team, I seek opportunities for growth and facilitate inclusivity especially as the organization evolves. I have completed my Bachelor of Science degree specializing in Computer Science and Software Engineering from the University of Toronto Scarborough and I'm looking forward to applying what I have learned throughout my career.",
   "contacts": [
     {
       "type": "email",
@@ -31,12 +31,15 @@
     }
   ],
   "skills": {
+    "Backend": ["Django", "Node.js", "Express", "FastAPI", "GraphQL", "REST APIs", "Celery", "RabbitMQ"],
     "Languages": ["Python", "JavaScript", "TypeScript", "Java", "C/C++", "C#", "Swift", "SQL"],
+    "Architecture": ["Microservices", "Event-Driven", "Domain-Driven Design", "System Design", "API Design"],
+    "Databases": ["MySQL", "PostgreSQL", "MongoDB", "Redis", "SQLite", "Oracle DB", "Firebase"],
+    "Cloud": ["AWS (EC2, S3, Lambda)", "GCP (Cloud Run, BigQuery, GCS)"],
+    "DevOps & Tools": ["Git", "GitHub Actions", "Jenkins", "CircleCI", "Jira", "Docker"],
+    "AI / ML": ["LLMs (ChatGPT, Claude APIs)", "TensorFlow", "PyTorch", "scikit-learn", "pandas"],
     "Frontend": ["React", "Vue", "HTML5", "CSS3", "Tailwind CSS"],
-    "Backend": ["Django", "Node.js", "Express"],
-    "Databases": ["MySQL", "PostgreSQL", "MongoDB", "SQLite", "Oracle DB", "Firebase"],
     "Testing": ["Selenium", "Appium", "Jest", "Pytest"],
-    "DevOps & Tools": ["Git", "Jenkins", "CircleCI", "Jira", "Docker"],
     "Mobile": ["Android", "iOS", "React Native"]
   },
   "educations": [
@@ -64,9 +67,10 @@
       "end": "Present",
       "location": "Toronto, Ontario, Canada",
       "description": [
-        "Engineered robust software solutions to optimize Amazon Ads campaigns, enhancing user experience and advertiser ROI to grow clients' businesses",
+        "Engineered robust software solutions on AWS and GCP to optimize Amazon Ads campaigns, enhancing user experience and advertiser ROI to grow clients' businesses",
         "Collaborated with cross-functional teams to innovate and integrate advanced features into the Perpetua / Flywheel Digital platform to capture new marketplaces",
-        "Pioneered the development of a recommendation system for ad campaigns, utilizing data analytics to drive strategic decisions and increase customer sales by 25%"
+        "Pioneered the development of an ML-driven recommendation system for ad campaigns, leveraging BigQuery, scikit-learn, and LLM APIs to drive strategic decisions and increase customer sales by 25%",
+        "Built and deployed microservices on AWS Lambda and GCP Cloud Run, enabling scalable data pipelines for real-time campaign analytics"
       ]
     },
     {

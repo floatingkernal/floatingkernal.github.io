@@ -1,22 +1,28 @@
-import { FiCode, FiLayers, FiServer, FiDatabase, FiCheckCircle, FiTool, FiSmartphone } from 'react-icons/fi';
+import { FiCode, FiLayers, FiServer, FiDatabase, FiCheckCircle, FiTool, FiSmartphone, FiCloud, FiCpu, FiGrid } from 'react-icons/fi';
 
 const categoryIcons = {
-  Languages: FiCode,
-  Frontend: FiLayers,
   Backend: FiServer,
+  Languages: FiCode,
+  Architecture: FiGrid,
   Databases: FiDatabase,
-  Testing: FiCheckCircle,
+  Cloud: FiCloud,
   'DevOps & Tools': FiTool,
+  'AI / ML': FiCpu,
+  Frontend: FiLayers,
+  Testing: FiCheckCircle,
   Mobile: FiSmartphone,
 };
 
 const categoryColors = {
-  Languages: 'from-blue-500 to-cyan-500',
-  Frontend: 'from-purple-500 to-pink-500',
   Backend: 'from-green-500 to-emerald-500',
+  Languages: 'from-blue-500 to-cyan-500',
+  Architecture: 'from-slate-500 to-zinc-600',
   Databases: 'from-orange-500 to-amber-500',
-  Testing: 'from-red-500 to-rose-500',
+  Cloud: 'from-sky-500 to-blue-500',
   'DevOps & Tools': 'from-indigo-500 to-violet-500',
+  'AI / ML': 'from-yellow-500 to-orange-500',
+  Frontend: 'from-purple-500 to-pink-500',
+  Testing: 'from-red-500 to-rose-500',
   Mobile: 'from-teal-500 to-cyan-500',
 };
 
