@@ -11,7 +11,29 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import resumeData from './data/resume.json';
 
+const RESUME_URL =
+  'https://raw.githubusercontent.com/floatingkernal/floatingkernal.github.io/react-source/src/data/resume.json';
+
 function App() {
+  const [data, setData] = useState(resumeData);
+  const [isFresh, setIsFresh] = useState(false);
+
+  useEffect(() => {
+    const cacheKey = Math.floor(Date.now() / 60000);
+    fetch(`${RESUME_URL}?v=${cacheKey}`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((freshData) => {
+        setData(freshData);
+        setIsFresh(true);
+      })
+      .catch(() => {
+        // Fetch failed — isFresh stays false, bundled fallback used for safe sections
+      });
+  }, []);
+
   const [darkMode, setDarkMode] = useState(() => {
     // Check localStorage first, then system preference
     const saved = localStorage.getItem('darkMode');
@@ -49,16 +71,16 @@ function App() {
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <main>
-        <Hero data={resumeData} />
-        <About data={resumeData} />
+        <Hero data={data} showResumeLink={isFresh} />
+        <About data={data} />
         <AskAI />
-        <Experience data={resumeData} />
-        <Skills data={resumeData} />
-        <Projects data={resumeData} />
-        <Education data={resumeData} />
-        <Contact data={resumeData} />
+        {isFresh && <Experience data={data} />}
+        <Skills data={data} />
+        {isFresh && <Projects data={data} />}
+        <Education data={data} />
+        <Contact data={data} />
       </main>
-      <Footer data={resumeData} />
+      <Footer data={data} />
     </div>
   );
 }

@@ -7,7 +7,7 @@ const iconMap = {
   github: FiGithub,
 };
 
-export default function Hero({ data }) {
+export default function Hero({ data, showResumeLink }) {
   const handleScrollDown = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
@@ -81,15 +81,17 @@ export default function Hero({ data }) {
           >
             Get in Touch
           </a>
-          <a
-            href={data.resumeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
-          >
-            <FiFileText size={20} />
-            View Resume
-          </a>
+          {showResumeLink && (
+            <a
+              href={data.resumeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              <FiFileText size={20} />
+              View Resume
+            </a>
+          )}
         </div>
       </div>
 

@@ -43,11 +43,18 @@ src/
 `Hero → About → AskAI → Experience → Skills → Projects → Education → Contact → Footer`
 
 ## Key Patterns
-- **Data flow:** `resume.json` is imported in `App.jsx` and passed as `data` prop to most sections. `AskAI` and `Toast` are self-contained (no data prop).
+- **Data flow:** `resume.json` is bundled as a static import fallback AND fetched at runtime from the GitHub raw URL. `App.jsx` uses `useState` initialized with the bundled data and a `useEffect` that fetches fresh data on mount. An `isFresh` flag controls which sections render on fetch failure. `AskAI` and `Toast` are self-contained (no data prop).
 - **Dark mode:** Stored in `localStorage`, toggled via class on `<html>`. Components use `dark:` Tailwind variants.
 - **Section backgrounds alternate:** `bg-white dark:bg-gray-900` ↔ `bg-gray-50 dark:bg-gray-800` for visual separation.
 - **Navbar:** `navLinks` array drives both desktop and mobile nav + scroll-spy. Adding a section = add entry to `navLinks` + render component in App.jsx.
 - **Section IDs:** Each section has an `id` matching its `navLinks` href (e.g., `id="about"`, `id="askai"`).
+
+## Runtime Data Fetching
+- App.jsx fetches `resume.json` from the raw GitHub URL of the `react-source` branch on mount
+- 1-minute cache: `?v=${Math.floor(Date.now() / 60000)}` query param
+- On success: all sections render with fresh data, `isFresh = true`
+- On failure: Experience, Projects, and resume link are hidden; other sections use bundled fallback
+- **Data-only updates:** edit `resume.json` on `react-source`, push — no rebuild needed
 
 ## Config Files
 - `vite.config.js` — React + Tailwind plugins, `base: '/'`

@@ -80,9 +80,14 @@ src/
 - **Ask AI About Me** — One-click buttons to open AI assistants (Claude, ChatGPT, DeepSeek, Gemini, Grok) with a pre-written prompt copied to clipboard
 - **Smooth Scrolling** — Scroll-spy highlights the active section in the nav bar
 
-## Customization
+## Updating Content
 
-All personal content (bio, experience, skills, projects, education, contact info) lives in `src/data/resume.json`. Edit that file to update the site content without touching any components.
+All personal content lives in `src/data/resume.json`. There are two ways to update:
+
+1. **Without rebuilding** — Edit `resume.json` on the `react-source` branch and push. The live site fetches the latest version from GitHub on each page load (1-minute cache). Changes appear within 1 minute.
+2. **With rebuild** — Edit `resume.json`, then run `npm run deploy` to bundle and deploy. This also updates the bundled fallback.
+
+> **Note:** If the runtime fetch fails (e.g., GitHub is down), Experience, Projects, and the resume link are hidden. Other sections fall back to the last deployed bundle.
 
 ## Git Branches
 
