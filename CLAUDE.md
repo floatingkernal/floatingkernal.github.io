@@ -1,5 +1,16 @@
 # React Portfolio — salmansharif.me
 
+## ⚠️ Content Rule — NO HARD-CODED CONTENT (must follow)
+**`src/data/resume.json` is the single source of truth for all user-facing content.** Any text, label, list, link, or copy a visitor reads MUST come from `resume.json` and be passed into components as data — never hard-coded in a `.jsx` file.
+
+This includes: section eyebrows/titles/subtitles (`sections.<id>`), the hero greeting and button labels (`hero.*`), stat tiles (`stats[]`), nav links (`nav[]`), the logo (derived from `name`), the "Ask AI" prompt and service list (`askAI.*`), the contact form endpoint (`contactFormEndpoint`), and the footer note (`footerNote`).
+
+When adding or changing anything:
+- New copy/data → add a field to `resume.json` and read it via props; do not inline string literals in JSX.
+- Need a new content field? Add it to `resume.json` (and the bundled copy stays the fallback) — then consume it.
+- **Only exceptions allowed in code:** things that genuinely cannot be serialized to JSON or are structural — icon/gradient *lookup maps* keyed by a string from `resume.json` (e.g. `askAI.services[].icon` → icon component; Skills category icon/color maps), the section render order in `App.jsx`, CSS/Tailwind classes, and the `RESUME_URL` fetch constant. Everything else belongs in `resume.json`.
+- Reviews (including cloud `/code-review`) should flag any newly hard-coded user-facing string as a violation of this rule.
+
 ## Tech Stack
 - **Framework:** React 19 + Vite 7
 - **Styling:** Tailwind CSS v4 (via `@tailwindcss/vite` plugin, class-based dark mode)
@@ -24,30 +35,32 @@ src/
 ├── App.jsx               # Root component, dark mode state, renders all sections
 ├── index.css             # Tailwind import, CSS variables, dark mode variant, scrollbar
 ├── data/
-│   └── resume.json       # All resume content (about, experience, skills, projects, education, contact)
+│   └── resume.json       # SINGLE SOURCE OF TRUTH — all content (see Content Rule above)
 └── components/
-    ├── Navbar.jsx         # Fixed nav, scroll-spy, mobile menu, dark mode toggle
-    ├── Hero.jsx           # Landing section with name/title
-    ├── About.jsx          # Bio + quick facts (bg-gray-50/gray-800)
-    ├── AskAI.jsx          # "Ask AI About Me" — 5 AI service buttons, copies prompt to clipboard
+    ├── Navbar.jsx         # Fixed nav (links from data.nav), scroll-spy, mobile menu, dark mode toggle, logo from name
+    ├── Hero.jsx           # Landing section — name/title/tagline + hero.* greeting & CTA labels
+    ├── SectionHeader.jsx  # Shared header; reads eyebrow/title/subtitle from data.sections[name]
+    ├── About.jsx          # Bio + stat tiles (data.stats)
+    ├── AskAI.jsx          # "Ask AI About Me" — services + prompt from data.askAI; icon map in code
     ├── Toast.jsx          # Self-dismissing toast notification (used by AskAI)
     ├── Experience.jsx     # Work history timeline
-    ├── Skills.jsx         # Skills grid
+    ├── Skills.jsx         # Skills grid (category icon/color maps in code)
     ├── Projects.jsx       # Project cards
     ├── Education.jsx      # Education details
-    ├── Contact.jsx        # Contact form/info
-    └── Footer.jsx         # Footer with links
+    ├── Contact.jsx        # Contact form/info (endpoint from data.contactFormEndpoint)
+    └── Footer.jsx         # Footer with links + footerNote
 ```
 
 ## Section Render Order (in App.jsx)
 `Hero → About → AskAI → Experience → Skills → Projects → Education → Contact → Footer`
 
 ## Key Patterns
-- **Data flow:** `resume.json` is bundled as a static import fallback AND fetched at runtime from the GitHub raw URL. `App.jsx` uses `useState` initialized with the bundled data and a `useEffect` that fetches fresh data on mount. An `isFresh` flag controls which sections render on fetch failure. `AskAI` and `Toast` are self-contained (no data prop).
-- **Dark mode:** Stored in `localStorage`, toggled via class on `<html>`. Components use `dark:` Tailwind variants.
-- **Section backgrounds alternate:** `bg-white dark:bg-gray-900` ↔ `bg-gray-50 dark:bg-gray-800` for visual separation.
-- **Navbar:** `navLinks` array drives both desktop and mobile nav + scroll-spy. Adding a section = add entry to `navLinks` + render component in App.jsx.
-- **Section IDs:** Each section has an `id` matching its `navLinks` href (e.g., `id="about"`, `id="askai"`).
+- **Data flow:** `resume.json` is bundled as a static import (default content + fallback) AND fetched at runtime from the GitHub raw URL. `App.jsx` initializes `useState` with the bundled data; on mount a `useEffect` fetches fresh data and **merges it over the bundled defaults** (`{ ...bundled, ...fetched }`) so a stale/partial remote file can never drop newer fields. An `isFresh` flag gates which sections render on fetch failure. All section components (including `AskAI` and `Navbar`) receive `data` as a prop.
+- **Theming / tokens:** `index.css` defines semantic CSS variables (`--bg`, `--surface`, `--content`, `--muted`, `--accent`, `--brand`, …) exposed to Tailwind via `@theme inline`, so utilities like `bg-bg`, `text-muted`, `text-accent`, `border-line` adapt automatically between light/dark. Display font = Sora (`font-display`), body = Inter. Reusable helpers: `.card`, `.text-gradient`, `.bg-grid`, animation utilities (`animate-fade-up`, etc.).
+- **Dark mode:** Stored in `localStorage`, toggled via `.dark` class on `<html>`. Prefer the semantic tokens over raw `dark:` color literals.
+- **Section layout:** all sections sit on `bg-bg` with content grouped into `.card` panels; every section opens with `<SectionHeader data={data} name="<id>" icon={…} />`.
+- **Navbar:** `data.nav` drives desktop + mobile nav + scroll-spy. Adding a section = add an entry to `nav[]` and a `sections.<id>` block in `resume.json`, then render the component in `App.jsx` with a matching `id`.
+- **Section IDs:** Each section has an `id` matching its `nav` href (e.g., `id="about"`, `id="askai"`).
 
 ## Runtime Data Fetching
 - App.jsx fetches `resume.json` from the raw GitHub URL of the `react-source` branch on mount

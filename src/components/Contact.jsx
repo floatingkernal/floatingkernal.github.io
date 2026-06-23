@@ -31,7 +31,7 @@ export default function Contact({ data }) {
     setStatus(null);
 
     try {
-      const response = await fetch('https://formspree.io/f/xpwzgkqz', {
+      const response = await fetch(data.contactFormEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,12 +55,7 @@ export default function Contact({ data }) {
   return (
     <section id="contact" className="py-24 px-4 bg-bg">
       <div className="max-w-4xl mx-auto">
-        <SectionHeader
-          icon={FiMail}
-          eyebrow="Contact"
-          title="Get in Touch"
-          subtitle="I'm always open to discussing new opportunities, collaborations, or just having a chat about technology. Feel free to reach out!"
-        />
+        <SectionHeader icon={FiMail} data={data} name="contact" />
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Contact Info */}

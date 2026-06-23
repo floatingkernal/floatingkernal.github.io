@@ -5,7 +5,7 @@ export default function Projects({ data }) {
   return (
     <section id="projects" className="py-24 px-4 bg-bg">
       <div className="max-w-6xl mx-auto">
-        <SectionHeader icon={FiFolder} eyebrow="Selected work" title="Featured Projects" />
+        <SectionHeader icon={FiFolder} data={data} name="projects" />
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

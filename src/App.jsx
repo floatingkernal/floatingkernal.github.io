@@ -26,7 +26,8 @@ function App() {
         return res.json();
       })
       .then((freshData) => {
-        setData(freshData);
+        // Merge over bundled defaults so a stale/partial fetch can't drop newer fields
+        setData({ ...resumeData, ...freshData });
         setIsFresh(true);
       })
       .catch(() => {
@@ -69,11 +70,11 @@ function App() {
 
   return (
     <div className="min-h-screen bg-bg transition-colors duration-300">
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Navbar data={data} darkMode={darkMode} setDarkMode={setDarkMode} />
       <main>
         <Hero data={data} showResumeLink={isFresh} />
         <About data={data} />
-        <AskAI />
+        <AskAI data={data} />
         {isFresh && <Experience data={data} />}
         <Skills data={data} />
         {isFresh && <Projects data={data} />}

@@ -33,7 +33,7 @@ export default function Hero({ data, showResumeLink }) {
           className="text-accent font-medium mb-3 animate-fade-up"
           style={{ animationDelay: '0.1s' }}
         >
-          Hello, I'm
+          {data.hero?.greeting}
         </p>
 
         {/* Name */}
@@ -97,7 +97,7 @@ export default function Hero({ data, showResumeLink }) {
             }}
             className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gradient-to-r from-brand to-brand-2 text-white font-medium rounded-xl shadow-lg shadow-brand/25 hover:shadow-xl hover:shadow-brand/40 hover:-translate-y-0.5 transition-all duration-300"
           >
-            Get in Touch
+            {data.hero?.ctaPrimary}
             <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           {showResumeLink && (
@@ -108,7 +108,7 @@ export default function Hero({ data, showResumeLink }) {
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-line text-content font-medium rounded-xl hover:border-accent/50 hover:bg-surface hover:-translate-y-0.5 transition-all duration-300"
             >
               <FiFileText size={18} />
-              View Resume
+              {data.hero?.ctaResume}
             </a>
           )}
         </div>

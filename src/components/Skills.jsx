@@ -31,7 +31,7 @@ export default function Skills({ data }) {
   return (
     <section id="skills" className="py-24 px-4 bg-bg">
       <div className="max-w-6xl mx-auto">
-        <SectionHeader icon={FiCode} eyebrow="Toolkit" title="Skills & Technologies" />
+        <SectionHeader icon={FiCode} data={data} name="skills" />
 
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

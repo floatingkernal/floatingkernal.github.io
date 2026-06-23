@@ -13,7 +13,7 @@ export default function Footer({ data }) {
           <div className="flex items-center gap-1.5 text-muted text-sm">
             <span>© {currentYear} {data.name}. Built with</span>
             <FiHeart className="text-red-500" size={15} />
-            <span>using React & Tailwind CSS</span>
+            <span>{data.footerNote}</span>
           </div>
 
           {/* Social Links */}

@@ -1,17 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 
-const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Ask AI', href: '#askai' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Education', href: '#education' },
-  { name: 'Contact', href: '#contact' },
-];
-
-export default function Navbar({ darkMode, setDarkMode }) {
+export default function Navbar({ data, darkMode, setDarkMode }) {
+  const navLinks = useMemo(() => data.nav || [], [data.nav]);
+  const initials = (data.name || '')
+    .split(' ')
+    .filter(Boolean)
+    .map((word) => word[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [scrolled, setScrolled] = useState(false);
@@ -36,7 +34,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navLinks]);
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
@@ -64,7 +62,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
             className="flex items-center gap-2 group"
           >
             <span className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-brand-2 text-white font-display font-bold text-sm shadow-md shadow-brand/20 transition-transform duration-300 group-hover:scale-105">
-              SS
+              {initials}
             </span>
           </a>
 

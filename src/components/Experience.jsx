@@ -5,7 +5,7 @@ export default function Experience({ data }) {
   return (
     <section id="experience" className="py-24 px-4 bg-bg">
       <div className="max-w-3xl mx-auto">
-        <SectionHeader icon={FiBriefcase} eyebrow="Career" title="Work Experience" />
+        <SectionHeader icon={FiBriefcase} data={data} name="experience" />
 
         {/* Timeline */}
         <div className="relative pl-8 sm:pl-10">

@@ -3,19 +3,61 @@
   "title": "Senior Software Engineer",
   "tagline": "Building robust software solutions that drive business growth",
   "resumeLink": "https://docs.google.com/document/d/e/2PACX-1vT1fX-IlpO031Pn3rQ-J64PzdoaWhXubyyqSD8852G-ai-V_VX8iNntAJnYC2pc6jxo0A-e_MWIF6Pq/pub",
-  "about": "Hello and welcome to my website! My name is Salman and I was informally known as the \"Bug Master\" at my previous company, Flipp because not only was I great at finding issues within the software, I addressed these issues to the best of my ability as well. Today I build full-stack products on AWS and GCP and apply AI/ML — from LLM-powered features to data-driven recommendation systems — to solve real business problems. I'm also passionate about automation, whether it's CI/CD pipelines with GitHub Actions at work or tinkering with homelab automations in my spare time. When joining a new organization or team, I seek opportunities for growth and facilitate inclusivity especially as the organization evolves. I have completed my Bachelor of Science degree specializing in Computer Science and Software Engineering from the University of Toronto Scarborough and I'm looking forward to applying what I have learned throughout my career.",
+  "about": "Hi, I'm Salman — a Senior Software Engineer at Flywheel Digital, where I've grown from Junior to Senior building the backend behind an ML-powered ad budget optimization product. Day to day I design REST and GraphQL APIs in Python and TypeScript, architect services on GCP with PostgreSQL and BigQuery, and build the data pipelines that move everything from real-time to batch. A lot of my work lately centers on AI — integrating LLM APIs into user-facing features and applying ML to turn campaign data into smarter decisions. Outside of shipping product, I'm happiest automating things: CI/CD at work, and a self-hosted homelab at home where I tinker with networking, storage, and the occasional 3D-printed enclosure. I care just as much about the people I build with — I enjoy mentoring and onboarding teammates and helping teams stay collaborative and inclusive as they grow. I hold a B.Sc. in Computer Science & Software Engineering from the University of Toronto, and I'm always chasing the next interesting problem to solve.",
+  "hero": {
+    "greeting": "Hello, I'm",
+    "ctaPrimary": "Get in Touch",
+    "ctaResume": "View Resume"
+  },
+  "stats": [
+    { "value": "5+", "label": "Years Experience" },
+    { "value": "Toronto", "label": "Based in ON, Canada" },
+    { "value": "U of T", "label": "CS Graduate" }
+  ],
+  "nav": [
+    { "name": "About", "href": "#about" },
+    { "name": "Ask AI", "href": "#askai" },
+    { "name": "Experience", "href": "#experience" },
+    { "name": "Skills", "href": "#skills" },
+    { "name": "Projects", "href": "#projects" },
+    { "name": "Education", "href": "#education" },
+    { "name": "Contact", "href": "#contact" }
+  ],
+  "sections": {
+    "about": { "eyebrow": "Introduction", "title": "About Me" },
+    "askai": {
+      "eyebrow": "The shortcut",
+      "title": "Ask AI About Me",
+      "subtitle": "Click any assistant below — a prompt is copied to your clipboard, just paste it to learn more about me."
+    },
+    "experience": { "eyebrow": "Career", "title": "Work Experience" },
+    "skills": { "eyebrow": "Toolkit", "title": "Skills & Technologies" },
+    "projects": { "eyebrow": "Selected work", "title": "Featured Projects" },
+    "education": { "eyebrow": "Background", "title": "Education" },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Get in Touch",
+      "subtitle": "I'm always open to discussing new opportunities, collaborations, or just having a chat about technology. Feel free to reach out!"
+    }
+  },
+  "askAI": {
+    "prompt": "Please visit https://salmansharif.me and tell me about Salman Sharif - what makes him a strong candidate, and what can he bring to my organization?",
+    "services": [
+      { "name": "Claude", "url": "https://claude.ai", "icon": "anthropic", "color": "#D4A574" },
+      { "name": "ChatGPT", "url": "https://chatgpt.com", "icon": "openai", "color": "#10A37F" },
+      { "name": "DeepSeek", "url": "https://chat.deepseek.com", "icon": "message", "color": "#4D6BFE" },
+      { "name": "Gemini", "url": "https://gemini.google.com/app", "icon": "gemini", "color": "#8E75B2" },
+      { "name": "Grok", "url": "https://grok.com", "icon": "message", "colorLight": "#000000", "colorDark": "#E7E7E7" }
+    ]
+  },
+  "contactFormEndpoint": "https://formspree.io/f/xpwzgkqz",
+  "footerNote": "using React & Tailwind CSS",
   "contacts": [
     {
       "type": "email",
       "value": "salmansharif99@gmail.com",
       "href": "mailto:salmansharif99@gmail.com",
       "icon": "email"
-    },
-    {
-      "type": "phone",
-      "value": "+1 647 822 8256",
-      "href": "tel:+1647-822-8256",
-      "icon": "phone"
     },
     {
       "type": "linkedin",
@@ -31,13 +73,13 @@
     }
   ],
   "skills": {
-    "Backend": ["Django", "Node.js", "Express", "FastAPI", "GraphQL", "REST APIs", "Celery", "RabbitMQ"],
+    "Backend": ["Django", "FastAPI", "Flask", "Node.js", "Express", "Nest.js", "GraphQL", "REST APIs", "Celery", "RabbitMQ"],
     "Languages": ["Python", "JavaScript", "TypeScript", "Java", "C/C++", "C#", "Swift", "SQL"],
     "Architecture": ["Microservices", "Event-Driven", "Domain-Driven Design", "System Design", "API Design"],
     "Databases": ["MySQL", "PostgreSQL", "MongoDB", "Redis", "SQLite", "Oracle DB", "Firebase"],
     "Cloud": ["AWS (EC2, S3, Lambda)", "GCP (Cloud Run, BigQuery, GCS)"],
-    "DevOps & Tools": ["Git", "GitHub Actions", "Jenkins", "CircleCI", "Jira", "Docker"],
-    "AI / ML": ["LLMs (ChatGPT, Claude APIs)", "TensorFlow", "PyTorch", "scikit-learn", "pandas"],
+    "DevOps & Tools": ["Git", "GitHub Actions", "Jenkins", "CircleCI", "Jira", "Docker", "Kubernetes", "Airflow"],
+    "AI / ML": ["LLM APIs (Claude, ChatGPT)", "GitHub Copilot", "TensorFlow", "PyTorch", "scikit-learn", "pandas", "NumPy"],
     "Frontend": ["React", "Vue", "HTML5", "CSS3", "Tailwind CSS"],
     "Testing": ["Selenium", "Appium", "Jest", "Pytest"],
     "Mobile": ["Android", "iOS", "React Native"]
@@ -61,16 +103,18 @@
   ],
   "workExp": [
     {
-      "company": "Perpetua / Flywheel Digital",
-      "position": "Senior Specialist Software Engineer",
-      "start": "June 2022",
+      "company": "Flywheel Digital (formerly Perpetua Labs)",
+      "position": "Senior Software Engineer",
+      "start": "May 2022",
       "end": "Present",
       "location": "Toronto, Ontario, Canada",
       "description": [
-        "Engineered robust software solutions on AWS and GCP to optimize Amazon Ads campaigns, enhancing user experience and advertiser ROI to grow clients' businesses",
-        "Collaborated with cross-functional teams to innovate and integrate advanced features into the Perpetua / Flywheel Digital platform to capture new marketplaces",
-        "Pioneered the development of an ML-driven recommendation system for ad campaigns, leveraging BigQuery, scikit-learn, and LLM APIs to drive strategic decisions and increase customer sales by 25%",
-        "Built and deployed microservices on AWS Lambda and GCP Cloud Run, enabling scalable data pipelines for real-time campaign analytics"
+        "Promoted twice from Junior to Senior Software Engineer",
+        "Led the technical design and end-to-end backend ownership of an ML-powered budget optimization product that trains on up to 2 years of dynamic campaign data to forecast optimal ad-spend allocation, serving roughly 100 users across several hundred campaigns",
+        "Designed and built REST and GraphQL APIs in Python (Django) and TypeScript, delivering features end-to-end from backend services through React frontends and authoring API specs to align teams on system contracts",
+        "Architected backend services on GCP using PostgreSQL and BigQuery, and built data ingestion pipelines and ETL workflows with Airflow to support real-time and batch ad-spend analytics",
+        "Built internal Django services with React and TypeScript admin tooling used by other teams to manage campaign data and operations, reducing manual work and reliance on external tools",
+        "Integrated LLM APIs to build user-facing AI features, wrote unit and integration tests with Pytest, and participated in on-call rotations triaging issues across pipelines, API services, and database performance"
       ]
     },
     {
@@ -124,6 +168,18 @@
       "highlights": [
         "Developed a responsive portfolio website using React and Tailwind CSS with dark/light theme support",
         "Implemented JSON-driven content management for easy updates and maintenance"
+      ]
+    },
+    {
+      "name": "Self-Hosted Home Lab & Network Infrastructure",
+      "desc": "Self-hosted home lab running personal services with secure remote access",
+      "role": "Infrastructure & Home Server",
+      "when": "2024 – Present",
+      "tech": ["Linux", "Tailscale VPN", "SMB / NAS", "Networking", "3D Printing"],
+      "highlights": [
+        "Built a self-hosted home lab to run personal services in-house instead of third-party cloud subscriptions, with SMB network storage and automated backups across devices",
+        "Configured secure remote access over a Tailscale mesh VPN with MagicDNS, keeping internal services reachable regardless of changing local IPs",
+        "Designed and 3D-printed custom hardware and enclosures, combining hands-on hardware tinkering with networking and home-server administration"
       ]
     },
     {

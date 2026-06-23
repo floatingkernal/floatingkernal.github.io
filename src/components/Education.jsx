@@ -5,7 +5,7 @@ export default function Education({ data }) {
   return (
     <section id="education" className="py-24 px-4 bg-bg">
       <div className="max-w-4xl mx-auto">
-        <SectionHeader icon={FiBook} eyebrow="Background" title="Education" />
+        <SectionHeader icon={FiBook} data={data} name="education" />
 
         {/* Education Cards */}
         <div className="space-y-6">
