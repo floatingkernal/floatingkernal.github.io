@@ -12,23 +12,10 @@ export default function Projects({ data }) {
           {data.projects.map((project, index) => (
             <div
               key={index}
-              className="group card overflow-hidden flex flex-col"
+              className="group card flex flex-col p-6"
             >
-              {/* Project Image */}
-              {project.poster && (
-                <div className="relative h-48 overflow-hidden bg-surface-2">
-                  <img
-                    src={project.poster}
-                    alt={project.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-              )}
-
               {/* Content */}
-              <div className="p-6 flex flex-col flex-grow">
+              <div className="flex flex-col flex-grow">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-2 gap-2">
                   <h3 className="font-display text-xl font-bold text-content group-hover:text-accent transition-colors">
