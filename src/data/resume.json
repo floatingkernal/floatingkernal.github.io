@@ -2,7 +2,7 @@
   "name": "Salman Sharif",
   "title": "Senior Software Engineer",
   "tagline": "Building robust software solutions that drive business growth",
-  "resumeLink": "https://docs.google.com/document/d/e/2PACX-1vT1fX-IlpO031Pn3rQ-J64PzdoaWhXubyyqSD8852G-ai-V_VX8iNntAJnYC2pc6jxo0A-e_MWIF6Pq/pub",
+  "resumeLink": "https://salmansharif.me/Salman_Sharif_Resume.pdf",
   "about": "Hi, I'm Salman — a Senior Software Engineer at Flywheel Digital, where I've grown from Junior to Senior building the backend behind an ML-powered ad budget optimization product. Day to day I design REST and GraphQL APIs in Python and TypeScript, architect services on GCP with PostgreSQL and BigQuery, and build the data pipelines that move everything from real-time to batch. A lot of my work lately centers on AI — integrating LLM APIs into user-facing features and applying ML to turn campaign data into smarter decisions. Outside of shipping product, I'm happiest automating things: CI/CD at work, and a self-hosted homelab at home where I tinker with networking, storage, and the occasional 3D-printed enclosure. I care just as much about the people I build with — I enjoy mentoring and onboarding teammates and helping teams stay collaborative and inclusive as they grow. I hold a B.Sc. in Computer Science & Software Engineering from the University of Toronto, and I'm always chasing the next interesting problem to solve.",
   "hero": {
     "greeting": "Hello, I'm",
