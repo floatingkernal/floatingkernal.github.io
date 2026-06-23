@@ -69,7 +69,14 @@ src/
 - On failure: Experience, Projects, and resume link are hidden; other sections use bundled fallback
 - **Data-only updates:** edit `resume.json` on `react-source`, push — no rebuild needed
 
+## SEO & Agent Metadata (generated from resume.json)
+- The `portfolioMeta` Vite plugin in `vite.config.js` derives all of this from `resume.json` + `package.json` `homepage` — never hand-author it (honors the Content Rule):
+  - **`/llms.txt`** ([llmstxt.org](https://llmstxt.org)) — markdown summary for AI agents/search. Served in dev via middleware; emitted into `dist/` at build. Generator: `scripts/siteMeta.js → buildLlmsTxt`.
+  - **JSON-LD `Person` schema** — injected into `index.html <head>` via `transformIndexHtml` for search-engine rich results. Generator: `scripts/siteMeta.js → buildJsonLd`.
+- Both regenerate on every `npm run build`/`dev`, so editing `resume.json` is enough. The site URL comes from `package.json` `homepage`.
+- Note: unlike section content, these are baked at **build time** from the bundled `resume.json` (not the runtime fetch), so they refresh on each `npm run deploy`.
+
 ## Config Files
-- `vite.config.js` — React + Tailwind plugins, `base: '/'`
+- `vite.config.js` — React + Tailwind plugins, `portfolioMeta` (llms.txt + JSON-LD), `base: '/'`
 - `public/CNAME` — custom domain `salmansharif.me`
 - `package.json` — `homepage: "https://salmansharif.me"`
