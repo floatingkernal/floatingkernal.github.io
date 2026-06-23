@@ -1,0 +1,61 @@
+# Salman Sharif
+
+> Senior Software Engineer — Building robust software solutions that drive business growth
+
+Hi, I'm Salman — a Senior Software Engineer at Flywheel Digital, where I've grown from Junior to Senior building the backend behind an ML-powered ad budget optimization product. Day to day I design REST and GraphQL APIs in Python and TypeScript, architect services on GCP with PostgreSQL and BigQuery, and build the data pipelines that move everything from real-time to batch. A lot of my work lately centers on AI — integrating LLM APIs into user-facing features and applying ML to turn campaign data into smarter decisions. Outside of shipping product, I'm happiest automating things: CI/CD at work, and a self-hosted homelab at home where I tinker with networking, storage, and the occasional 3D-printed enclosure. I care just as much about the people I build with — I enjoy mentoring and onboarding teammates and helping teams stay collaborative and inclusive as they grow. I hold a B.Sc. in Computer Science & Software Engineering from the University of Toronto, and I'm always chasing the next interesting problem to solve.
+
+## Experience
+
+- **Senior Software Engineer**, Flywheel Digital (formerly Perpetua Labs) (May 2022 – Present), Toronto, Ontario, Canada
+  - Promoted twice from Junior to Senior Software Engineer
+  - Led the technical design and end-to-end backend ownership of an ML-powered budget optimization product that trains on up to 2 years of dynamic campaign data to forecast optimal ad-spend allocation, serving roughly 100 users across several hundred campaigns
+  - Designed and built REST and GraphQL APIs in Python (Django) and TypeScript, delivering features end-to-end from backend services through React frontends and authoring API specs to align teams on system contracts
+  - Architected backend services on GCP using PostgreSQL and BigQuery, and built data ingestion pipelines and ETL workflows with Airflow to support real-time and batch ad-spend analytics
+  - Built internal Django services with React and TypeScript admin tooling used by other teams to manage campaign data and operations, reducing manual work and reliance on external tools
+  - Integrated LLM APIs to build user-facing AI features, wrote unit and integration tests with Pytest, and participated in on-call rotations triaging issues across pipelines, API services, and database performance
+- **Automation Engineer Consultant**, TCS & RBC (January 2021 – April 2022), Toronto, Ontario, Canada
+  - Automated Mobile Banking manual test cases for release validation using Appium Scripts written in Java, decreasing time to production from 2 weeks to 2 days
+  - Developed test cases for new features introduced by developer and design teams using ALM and Design Documentation, improving release and subsequent regression cycles
+  - Onboarded new team members for the Automation team by creating documentation for setup/walkthroughs of automation tools, decreasing onboarding time by 4X
+- **Software Engineer in Test**, Flipp (May 2019 – August 2019), Toronto, Ontario, Canada
+  - Created scripts for automating development tasks using Python, Testrail API, Jenkins, and CircleCI to reduce time to market of new features by 50%
+  - Transitioned app from processing data on the app to the server by testing updated codebase, improving app performance by at least 2X
+  - Identified 100+ issues within the iOS and Android Flipp app using documentation and requirement lists, achieving nomination of "Bug Master" within the organization
+- **QA Engineer**, Ministry of Education (September 2017 – April 2018), Toronto, Ontario, Canada
+  - Created automated tools and test cases to simplify manual testing by 3X using HP Unified Functional Testing and Selenium
+  - Performance tested multiple applications during upgrade from Oracle 11g to 12c DB, resulting in 3X performance improvement (30s to under 10s response time)
+
+## Skills
+
+- **Backend:** Django, FastAPI, Flask, Node.js, Express, Nest.js, GraphQL, REST APIs, Celery, RabbitMQ
+- **Languages:** Python, JavaScript, TypeScript, Java, C/C++, C#, Swift, SQL
+- **Architecture:** Microservices, Event-Driven, Domain-Driven Design, System Design, API Design
+- **Databases:** MySQL, PostgreSQL, MongoDB, Redis, SQLite, Oracle DB, Firebase
+- **Cloud:** AWS (EC2, S3, Lambda), GCP (Cloud Run, BigQuery, GCS)
+- **DevOps & Tools:** Git, GitHub Actions, Jenkins, CircleCI, Jira, Docker, Kubernetes, Airflow
+- **AI / ML:** LLM APIs (Claude, ChatGPT), GitHub Copilot, TensorFlow, PyTorch, scikit-learn, pandas, NumPy
+- **Frontend:** React, Vue, HTML5, CSS3, Tailwind CSS
+- **Testing:** Selenium, Appium, Jest, Pytest
+- **Mobile:** Android, iOS, React Native
+
+## Projects
+
+- **Personal Portfolio** — 2024: Modern personal webpage built with React and Tailwind CSS (https://salmansharif.me/)
+- **Self-Hosted Home Lab & Network Infrastructure** — 2024 – Present: Self-hosted home lab running personal services with secure remote access
+- **Shoppies** — 2021: Movie awards nomination service (https://salmansharif.me/shoppies)
+- **SMAA App** — 2020: E-commerce Web App for SMAA Corp (https://smaa.ca/)
+- **Book a Room** — 2019: Centralized platform for booking temporary office spaces (https://json-c09.herokuapp.com/)
+- **InCase** — 2017: Pocket Lawyer app - UofTHacks 2017 Finalist
+- **Flight Manager App** — 2016: Airplane Flight Itinerary Manager Application
+
+## Education
+
+- Honours Bachelor of Science in Computer Science (Software Engineering), University of Toronto (2015 – 2020)
+
+## Contact
+
+- Email: salmansharif99@gmail.com (mailto:salmansharif99@gmail.com)
+- Linkedin: linkedin.com/in/salman-sharif-swe (https://www.linkedin.com/in/salman-sharif-swe)
+- Github: github.com/floatingkernal (https://github.com/floatingkernal)
+- Resume: https://docs.google.com/document/d/e/2PACX-1vT1fX-IlpO031Pn3rQ-J64PzdoaWhXubyyqSD8852G-ai-V_VX8iNntAJnYC2pc6jxo0A-e_MWIF6Pq/pub
+- Website: https://salmansharif.me
