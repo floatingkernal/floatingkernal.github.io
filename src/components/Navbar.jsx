@@ -51,8 +51,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+          ? 'bg-bg/80 backdrop-blur-xl border-b border-line shadow-sm'
+          : 'bg-transparent border-b border-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,70 +61,78 @@ export default function Navbar({ darkMode, setDarkMode }) {
           <a
             href="#hero"
             onClick={(e) => handleNavClick(e, '#hero')}
-            className="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="flex items-center gap-2 group"
           >
-            SS
+            <span className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-brand-2 text-white font-display font-bold text-sm shadow-md shadow-brand/20 transition-transform duration-300 group-hover:scale-105">
+              SS
+            </span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className={`text-sm font-medium transition-colors ${
-                  activeSection === link.href.substring(1)
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
+          <div className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    isActive
+                      ? 'text-accent'
+                      : 'text-muted hover:text-content'
+                  }`}
+                >
+                  {link.name}
+                  {isActive && (
+                    <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-brand to-brand-2" />
+                  )}
+                </a>
+              );
+            })}
 
             {/* Theme Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="ml-2 p-2 rounded-lg text-muted hover:text-content border border-line hover:border-accent/50 hover:bg-surface transition-colors"
               aria-label="Toggle dark mode"
             >
-              {darkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
+              {darkMode ? <FiSun size={18} /> : <FiMoon size={18} />}
             </button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="md:hidden flex items-center gap-2">
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+              className="p-2 rounded-lg text-muted hover:text-content border border-line transition-colors"
               aria-label="Toggle dark mode"
             >
-              {darkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
+              {darkMode ? <FiSun size={18} /> : <FiMoon size={18} />}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-300"
+              className="p-2 rounded-lg text-muted hover:text-content border border-line transition-colors"
               aria-label="Toggle menu"
             >
-              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              {isOpen ? <FiX size={22} /> : <FiMenu size={22} />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden bg-white dark:bg-gray-900 border-t dark:border-gray-800">
+          <div className="md:hidden bg-bg/95 backdrop-blur-xl border-t border-line animate-fade-in">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  className={`block px-3 py-2 rounded-lg text-base font-medium transition-colors ${
                     activeSection === link.href.substring(1)
-                      ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                      ? 'text-accent bg-accent-soft'
+                      : 'text-muted hover:text-content hover:bg-surface'
                   }`}
                 >
                   {link.name}

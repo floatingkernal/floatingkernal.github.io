@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FiMail, FiPhone, FiLinkedin, FiGithub, FiSend, FiCheck, FiAlertCircle } from 'react-icons/fi';
+import SectionHeader from './SectionHeader';
 
 const iconMap = {
   email: FiMail,
@@ -7,6 +8,9 @@ const iconMap = {
   linkedin: FiLinkedin,
   github: FiGithub,
 };
+
+const inputClass =
+  'w-full px-4 py-2.5 bg-surface-2 border border-line rounded-lg text-content placeholder:text-muted/70 focus:border-accent outline-none transition-all';
 
 export default function Contact({ data }) {
   const [formData, setFormData] = useState({
@@ -49,23 +53,19 @@ export default function Contact({ data }) {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+    <section id="contact" className="py-24 px-4 bg-bg">
       <div className="max-w-4xl mx-auto">
-        {/* Section Header */}
-        <div className="flex items-center gap-3 mb-4">
-          <FiMail className="text-blue-600 dark:text-blue-400" size={28} />
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-            Get in Touch
-          </h2>
-        </div>
-        <p className="text-gray-600 dark:text-gray-300 mb-12 max-w-2xl">
-          I'm always open to discussing new opportunities, collaborations, or just having a chat about technology. Feel free to reach out!
-        </p>
+        <SectionHeader
+          icon={FiMail}
+          eyebrow="Contact"
+          title="Get in Touch"
+          subtitle="I'm always open to discussing new opportunities, collaborations, or just having a chat about technology. Feel free to reach out!"
+        />
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {/* Contact Info */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          <div className="space-y-4">
+            <h3 className="font-display text-lg font-semibold text-content mb-2">
               Contact Information
             </h3>
 
@@ -79,16 +79,14 @@ export default function Contact({ data }) {
                   href={contact.href}
                   target={['linkedin', 'github'].includes(contact.type) ? '_blank' : undefined}
                   rel={['linkedin', 'github'].includes(contact.type) ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-4 p-4 bg-white dark:bg-gray-900 rounded-xl hover:shadow-md transition-all duration-300 group"
+                  className="card flex items-center gap-4 p-4 group"
                 >
-                  <div className="p-3 bg-blue-50 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
-                    <Icon size={24} />
+                  <div className="p-3 bg-accent-soft rounded-lg text-accent">
+                    <Icon size={22} />
                   </div>
-                  <div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 capitalize">
-                      {contact.type}
-                    </div>
-                    <div className="text-gray-900 dark:text-white font-medium group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <div className="min-w-0">
+                    <div className="text-sm text-muted capitalize">{contact.type}</div>
+                    <div className="text-content font-medium truncate group-hover:text-accent transition-colors">
                       {contact.value}
                     </div>
                   </div>
@@ -98,17 +96,14 @@ export default function Contact({ data }) {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          <div className="card p-6">
+            <h3 className="font-display text-lg font-semibold text-content mb-4">
               Send a Message
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                >
+                <label htmlFor="name" className="block text-sm font-medium text-muted mb-1.5">
                   Name
                 </label>
                 <input
@@ -118,16 +113,13 @@ export default function Contact({ data }) {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                  className={inputClass}
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                >
+                <label htmlFor="email" className="block text-sm font-medium text-muted mb-1.5">
                   Email
                 </label>
                 <input
@@ -137,16 +129,13 @@ export default function Contact({ data }) {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                  className={inputClass}
                   placeholder="your@email.com"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                >
+                <label htmlFor="message" className="block text-sm font-medium text-muted mb-1.5">
                   Message
                 </label>
                 <textarea
@@ -156,22 +145,22 @@ export default function Contact({ data }) {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
+                  className={`${inputClass} resize-none`}
                   placeholder="Your message..."
                 />
               </div>
 
               {/* Status Messages */}
               {status === 'success' && (
-                <div className="flex items-center gap-2 p-3 bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg">
-                  <FiCheck size={20} />
+                <div className="flex items-center gap-2 p-3 bg-emerald-500/10 text-emerald-500 rounded-lg text-sm">
+                  <FiCheck size={20} className="shrink-0" />
                   <span>Message sent successfully! I'll get back to you soon.</span>
                 </div>
               )}
 
               {status === 'error' && (
-                <div className="flex items-center gap-2 p-3 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-lg">
-                  <FiAlertCircle size={20} />
+                <div className="flex items-center gap-2 p-3 bg-red-500/10 text-red-500 rounded-lg text-sm">
+                  <FiAlertCircle size={20} className="shrink-0" />
                   <span>Something went wrong. Please try again or email me directly.</span>
                 </div>
               )}
@@ -179,7 +168,7 @@ export default function Contact({ data }) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="w-full py-3 bg-gradient-to-r from-brand to-brand-2 hover:shadow-lg hover:shadow-brand/30 disabled:opacity-60 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <span>Sending...</span>

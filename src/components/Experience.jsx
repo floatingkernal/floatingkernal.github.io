@@ -1,82 +1,65 @@
 import { FiBriefcase, FiMapPin, FiExternalLink } from 'react-icons/fi';
+import SectionHeader from './SectionHeader';
 
 export default function Experience({ data }) {
   return (
-    <section id="experience" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-4xl mx-auto">
-        {/* Section Header */}
-        <div className="flex items-center gap-3 mb-12">
-          <FiBriefcase className="text-blue-600 dark:text-blue-400" size={28} />
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-            Work Experience
-          </h2>
-        </div>
+    <section id="experience" className="py-24 px-4 bg-bg">
+      <div className="max-w-3xl mx-auto">
+        <SectionHeader icon={FiBriefcase} eyebrow="Career" title="Work Experience" />
 
         {/* Timeline */}
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-blue-200 dark:bg-blue-900 transform md:-translate-x-1/2" />
+        <div className="relative pl-8 sm:pl-10">
+          {/* Vertical line */}
+          <div className="absolute left-[7px] sm:left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-brand via-line to-transparent" />
 
           {data.workExp.map((job, index) => (
-            <div
-              key={index}
-              className={`relative flex flex-col md:flex-row gap-8 mb-12 ${
-                index % 2 === 0 ? 'md:flex-row-reverse' : ''
-              }`}
-            >
-              {/* Timeline dot */}
-              <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full transform -translate-x-1/2 mt-6 ring-4 ring-white dark:ring-gray-800" />
+            <div key={index} className="relative mb-10 last:mb-0">
+              {/* Dot */}
+              <div className="absolute -left-8 sm:-left-10 top-6 w-4 h-4 rounded-full bg-gradient-to-br from-brand to-brand-2 ring-4 ring-bg" />
 
-              {/* Content */}
-              <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} pl-8 md:pl-0`}>
-                <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                  {/* Date */}
-                  <div className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2">
-                    {job.start} — {job.end}
-                  </div>
-
-                  {/* Position */}
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
-                    {job.position}
-                  </h3>
-
-                  {/* Company */}
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-gray-600 dark:text-gray-300 font-medium">
-                      {job.company}
-                    </span>
-                    {job.link && (
-                      <a
-                        href={job.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
-                      >
-                        <FiExternalLink size={16} />
-                      </a>
-                    )}
-                  </div>
-
-                  {/* Location */}
-                  <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 mb-4">
-                    <FiMapPin size={14} />
-                    {job.location}
-                  </div>
-
-                  {/* Description */}
-                  <ul className="space-y-2">
-                    {job.description.map((item, i) => (
-                      <li key={i} className="text-gray-600 dark:text-gray-300 text-sm flex">
-                        <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+              <div className="card p-6">
+                {/* Date */}
+                <div className="inline-flex items-center text-xs font-semibold text-accent bg-accent-soft px-2.5 py-1 rounded-full mb-3">
+                  {job.start} — {job.end}
                 </div>
-              </div>
 
-              {/* Spacer for timeline layout */}
-              <div className="hidden md:block md:w-1/2" />
+                {/* Position */}
+                <h3 className="font-display text-xl font-bold text-content mb-1">
+                  {job.position}
+                </h3>
+
+                {/* Company */}
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="text-content/90 font-medium">{job.company}</span>
+                  {job.link && (
+                    <a
+                      href={job.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted hover:text-accent transition-colors"
+                      aria-label={`${job.company} website`}
+                    >
+                      <FiExternalLink size={15} />
+                    </a>
+                  )}
+                </div>
+
+                {/* Location */}
+                <div className="flex items-center gap-1.5 text-sm text-muted mb-4">
+                  <FiMapPin size={14} />
+                  {job.location}
+                </div>
+
+                {/* Description */}
+                <ul className="space-y-2">
+                  {job.description.map((item, i) => (
+                    <li key={i} className="text-muted text-sm flex gap-2.5 leading-relaxed">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

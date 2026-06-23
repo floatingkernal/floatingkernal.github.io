@@ -1,55 +1,70 @@
-import { FiMail, FiPhone, FiLinkedin, FiGithub, FiChevronDown, FiFileText } from 'react-icons/fi';
+import { FiMail, FiLinkedin, FiGithub, FiChevronDown, FiFileText, FiArrowRight } from 'react-icons/fi';
 
 const iconMap = {
   email: FiMail,
-  phone: FiPhone,
   linkedin: FiLinkedin,
   github: FiGithub,
 };
 
 export default function Hero({ data, showResumeLink }) {
   const handleScrollDown = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col justify-center items-center relative px-4 pt-16"
+      className="min-h-screen flex flex-col justify-center items-center relative px-4 pt-16 overflow-hidden"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 -z-10" />
+      {/* Layered background */}
+      <div className="absolute inset-0 -z-20 bg-gradient-to-b from-accent-soft/60 via-bg to-bg" />
+      <div className="absolute inset-0 -z-10 bg-grid" />
 
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-purple-400/20 rounded-full blur-3xl -z-10" />
+      {/* Floating glow blobs */}
+      <div className="absolute top-24 -left-10 w-80 h-80 bg-brand/20 rounded-full blur-3xl -z-10 animate-float" />
+      <div
+        className="absolute bottom-24 -right-10 w-80 h-80 bg-brand-2/20 rounded-full blur-3xl -z-10 animate-float"
+        style={{ animationDelay: '-4s' }}
+      />
 
       <div className="text-center max-w-3xl mx-auto">
         {/* Greeting */}
-        <p className="text-blue-600 dark:text-blue-400 font-medium mb-4 animate-fade-in">
+        <p
+          className="text-accent font-medium mb-3 animate-fade-up"
+          style={{ animationDelay: '0.1s' }}
+        >
           Hello, I'm
         </p>
 
         {/* Name */}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4">
+        <h1
+          className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-gradient mb-4 animate-fade-up"
+          style={{ animationDelay: '0.18s' }}
+        >
           {data.name}
         </h1>
 
         {/* Title */}
-        <h2 className="text-2xl sm:text-3xl text-gray-600 dark:text-gray-300 mb-6">
+        <h2
+          className="font-display text-2xl sm:text-3xl font-semibold text-content mb-5 animate-fade-up"
+          style={{ animationDelay: '0.26s' }}
+        >
           {data.title}
         </h2>
 
         {/* Tagline */}
-        <p className="text-lg text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+        <p
+          className="text-lg text-muted mb-9 max-w-2xl mx-auto leading-relaxed animate-fade-up"
+          style={{ animationDelay: '0.34s' }}
+        >
           {data.tagline}
         </p>
 
         {/* Social Links */}
-        <div className="flex justify-center items-center gap-4 mb-8">
+        <div
+          className="flex justify-center items-center gap-3 mb-9 animate-fade-up"
+          style={{ animationDelay: '0.42s' }}
+        >
           {data.contacts
             .filter((c) => ['email', 'linkedin', 'github'].includes(c.type))
             .map((contact) => {
@@ -60,35 +75,39 @@ export default function Hero({ data, showResumeLink }) {
                   href={contact.href}
                   target={contact.type !== 'email' ? '_blank' : undefined}
                   rel={contact.type !== 'email' ? 'noopener noreferrer' : undefined}
-                  className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110"
+                  className="p-3 rounded-xl border border-line bg-surface/70 text-muted hover:text-accent hover:border-accent/50 hover:-translate-y-0.5 transition-all duration-300"
                   aria-label={contact.type}
                 >
-                  <Icon size={24} />
+                  <Icon size={22} />
                 </a>
               );
             })}
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <div
+          className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-up"
+          style={{ animationDelay: '0.5s' }}
+        >
           <a
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gradient-to-r from-brand to-brand-2 text-white font-medium rounded-xl shadow-lg shadow-brand/25 hover:shadow-xl hover:shadow-brand/40 hover:-translate-y-0.5 transition-all duration-300"
           >
             Get in Touch
+            <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           {showResumeLink && (
             <a
               href={data.resumeLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-line text-content font-medium rounded-xl hover:border-accent/50 hover:bg-surface hover:-translate-y-0.5 transition-all duration-300"
             >
-              <FiFileText size={20} />
+              <FiFileText size={18} />
               View Resume
             </a>
           )}
@@ -98,10 +117,10 @@ export default function Hero({ data, showResumeLink }) {
       {/* Scroll indicator */}
       <button
         onClick={handleScrollDown}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted hover:text-accent transition-colors animate-bounce"
         aria-label="Scroll down"
       >
-        <FiChevronDown size={32} />
+        <FiChevronDown size={30} />
       </button>
     </section>
   );

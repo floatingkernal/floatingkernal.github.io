@@ -1,4 +1,5 @@
 import { FiCode, FiLayers, FiServer, FiDatabase, FiCheckCircle, FiTool, FiSmartphone, FiCloud, FiCpu, FiGrid } from 'react-icons/fi';
+import SectionHeader from './SectionHeader';
 
 const categoryIcons = {
   Backend: FiServer,
@@ -28,15 +29,9 @@ const categoryColors = {
 
 export default function Skills({ data }) {
   return (
-    <section id="skills" className="py-20 px-4 bg-white dark:bg-gray-900">
+    <section id="skills" className="py-24 px-4 bg-bg">
       <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="flex items-center gap-3 mb-12">
-          <FiCode className="text-blue-600 dark:text-blue-400" size={28} />
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-            Skills & Technologies
-          </h2>
-        </div>
+        <SectionHeader icon={FiCode} eyebrow="Toolkit" title="Skills & Technologies" />
 
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -45,16 +40,13 @@ export default function Skills({ data }) {
             const gradient = categoryColors[category] || 'from-gray-500 to-gray-600';
 
             return (
-              <div
-                key={category}
-                className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-all duration-300 group"
-              >
+              <div key={category} className="card p-6">
                 {/* Category Header */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className={`p-2 rounded-lg bg-gradient-to-br ${gradient} text-white`}>
+                  <div className={`p-2 rounded-lg bg-gradient-to-br ${gradient} text-white shadow-sm`}>
                     <Icon size={20} />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <h3 className="font-display text-lg font-semibold text-content">
                     {category}
                   </h3>
                 </div>
@@ -64,7 +56,7 @@ export default function Skills({ data }) {
                   {skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full border border-gray-200 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-default"
+                      className="px-3 py-1 bg-surface-2 text-muted text-sm rounded-full border border-line hover:border-accent/50 hover:text-accent transition-colors cursor-default"
                     >
                       {skill}
                     </span>

@@ -1,51 +1,46 @@
 import { FiFolder, FiExternalLink, FiGithub, FiCalendar } from 'react-icons/fi';
+import SectionHeader from './SectionHeader';
 
 export default function Projects({ data }) {
   return (
-    <section id="projects" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+    <section id="projects" className="py-24 px-4 bg-bg">
       <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="flex items-center gap-3 mb-12">
-          <FiFolder className="text-blue-600 dark:text-blue-400" size={28} />
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-            Featured Projects
-          </h2>
-        </div>
+        <SectionHeader icon={FiFolder} eyebrow="Selected work" title="Featured Projects" />
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {data.projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
+              className="group card overflow-hidden flex flex-col"
             >
               {/* Project Image */}
               {project.poster && (
-                <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
+                <div className="relative h-48 overflow-hidden bg-surface-2">
                   <img
                     src={project.poster}
                     alt={project.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               )}
 
               {/* Content */}
               <div className="p-6 flex flex-col flex-grow">
                 {/* Header */}
-                <div className="flex items-start justify-between mb-2">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <div className="flex items-start justify-between mb-2 gap-2">
+                  <h3 className="font-display text-xl font-bold text-content group-hover:text-accent transition-colors">
                     {project.name}
                   </h3>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1 shrink-0">
                     {project.link && (
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        className="p-2 text-muted hover:text-accent transition-colors"
                         aria-label="View live project"
                       >
                         <FiExternalLink size={18} />
@@ -56,7 +51,7 @@ export default function Projects({ data }) {
                         href={project.repo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        className="p-2 text-muted hover:text-accent transition-colors"
                         aria-label="View source code"
                       >
                         <FiGithub size={18} />
@@ -66,22 +61,22 @@ export default function Projects({ data }) {
                 </div>
 
                 {/* Date */}
-                <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 mb-2">
+                <div className="flex items-center gap-1.5 text-sm text-muted mb-3">
                   <FiCalendar size={14} />
                   {project.when}
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                <p className="text-muted text-sm mb-4 leading-relaxed">
                   {project.desc}
                 </p>
 
                 {/* Highlights */}
                 {project.highlights && (
-                  <ul className="space-y-1 mb-4 flex-grow">
+                  <ul className="space-y-1.5 mb-4 flex-grow">
                     {project.highlights.slice(0, 2).map((highlight, i) => (
-                      <li key={i} className="text-gray-500 dark:text-gray-400 text-xs flex">
-                        <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
+                      <li key={i} className="text-muted text-xs flex gap-2">
+                        <span className="mt-1.5 h-1 w-1 rounded-full bg-brand shrink-0" />
                         <span className="line-clamp-2">{highlight}</span>
                       </li>
                     ))}
@@ -89,11 +84,11 @@ export default function Projects({ data }) {
                 )}
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-700">
+                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-line">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-md font-medium"
+                      className="px-2.5 py-1 bg-accent-soft text-accent text-xs rounded-md font-medium"
                     >
                       {tech}
                     </span>

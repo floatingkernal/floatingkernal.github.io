@@ -3,57 +3,168 @@
 /* Enable class-based dark mode for Tailwind v4 */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Custom CSS variables for theming */
+/* ------------------------------------------------------------------ */
+/*  Design tokens — semantic colors that adapt to light / dark         */
+/* ------------------------------------------------------------------ */
 :root {
-  --color-primary: #3b82f6;
-  --color-primary-dark: #2563eb;
-  --color-background: #ffffff;
-  --color-surface: #f3f4f6;
-  --color-text: #1f2937;
-  --color-text-muted: #6b7280;
-  --color-border: #e5e7eb;
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --surface-2: #f1f5f9;
+  --content: #0f172a;
+  --muted: #64748b;
+  --line: #e2e8f0;
+
+  /* Accent (text / icons) — adapts per mode */
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+
+  /* Brand (filled buttons, gradients) — confident indigo→violet */
+  --brand: #4f46e5;
+  --brand-hover: #4338ca;
+  --brand-2: #7c3aed;
+
+  --ring: rgba(79, 70, 229, 0.45);
 }
 
 .dark {
-  --color-background: #111827;
-  --color-surface: #1f2937;
-  --color-text: #f9fafb;
-  --color-text-muted: #9ca3af;
-  --color-border: #374151;
+  --bg: #0a0f1e;
+  --surface: #0f1729;
+  --surface-2: #16223c;
+  --content: #f1f5f9;
+  --muted: #94a3b8;
+  --line: #1e2c47;
+
+  --accent: #a5b4fc;
+  --accent-soft: rgba(129, 140, 248, 0.12);
+
+  --brand: #6366f1;
+  --brand-hover: #818cf8;
+  --brand-2: #a855f7;
+
+  --ring: rgba(129, 140, 248, 0.5);
 }
 
-/* Smooth scrolling */
+/* ------------------------------------------------------------------ */
+/*  Expose tokens, fonts and animations to Tailwind utilities          */
+/* ------------------------------------------------------------------ */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-content: var(--content);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-2: var(--brand-2);
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Sora", "Inter", system-ui, sans-serif;
+
+  --animate-fade-in: fade-in 0.7s ease-out both;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-float: float 8s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-22px); }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
 html {
   scroll-behavior: smooth;
 }
 
-/* Base styles */
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: var(--color-background);
-  color: var(--color-text);
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--content);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-surface);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-text-muted);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text);
-}
-
-/* Section spacing */
 section {
   scroll-margin-top: 80px;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 3px var(--ring);
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--brand);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 6px;
+  border: 2px solid var(--surface);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* ------------------------------------------------------------------ */
+/*  Reusable helpers                                                   */
+/* ------------------------------------------------------------------ */
+
+/* Gradient brand text */
+.text-gradient {
+  background: linear-gradient(120deg, var(--brand) 0%, var(--brand-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Subtle dotted grid background for hero */
+.bg-grid {
+  background-image: radial-gradient(var(--line) 1px, transparent 1px);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 40%, transparent 100%);
+}
+
+/* Card that lifts on hover */
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in oklab, var(--brand) 45%, var(--line));
+  box-shadow: 0 18px 40px -18px var(--ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

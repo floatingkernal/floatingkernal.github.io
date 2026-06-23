@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FiMessageCircle } from 'react-icons/fi';
 import { SiAnthropic, SiOpenai, SiGooglegemini } from 'react-icons/si';
 import Toast from './Toast';
+import SectionHeader from './SectionHeader';
 
 const PROMPT = 'Please visit https://salmansharif.me and tell me about Salman Sharif - what makes him a strong candidate, and what can he bring to my organization?';
 
@@ -79,18 +80,14 @@ export default function AskAI() {
   };
 
   return (
-    <section id="askai" className="py-20 px-4 bg-white dark:bg-gray-900">
+    <section id="askai" className="py-24 px-4 bg-bg">
       <div className="max-w-4xl mx-auto">
-        {/* Section Header */}
-        <div className="flex items-center gap-3 mb-4">
-          <FiMessageCircle className="text-blue-600 dark:text-blue-400" size={28} />
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-            Ask AI About Me
-          </h2>
-        </div>
-        <p className="text-gray-600 dark:text-gray-400 mb-10 max-w-2xl">
-          Click any button below to open an AI assistant. A prompt will be copied to your clipboard — just paste it to learn more about me.
-        </p>
+        <SectionHeader
+          icon={FiMessageCircle}
+          eyebrow="The shortcut"
+          title="Ask AI About Me"
+          subtitle="Click any assistant below — a prompt is copied to your clipboard, just paste it to learn more about me."
+        />
 
         {/* AI Service Buttons */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -101,7 +98,7 @@ export default function AskAI() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => handleClick(e, service)}
-              className="group flex items-center gap-4 p-5 rounded-xl bg-white dark:bg-gray-700 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 text-left no-underline"
+              className="group card flex items-center gap-4 p-5 text-left no-underline"
             >
               <div
                 className="flex items-center justify-center w-12 h-12 rounded-xl shrink-0 transition-transform duration-200 group-hover:scale-110"
@@ -116,10 +113,10 @@ export default function AskAI() {
                 />
               </div>
               <div>
-                <div className="font-semibold text-gray-900 dark:text-white">
+                <div className="font-semibold text-content">
                   {service.name}
                 </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-sm text-muted">
                   Ask {service.name} about me
                 </div>
               </div>
